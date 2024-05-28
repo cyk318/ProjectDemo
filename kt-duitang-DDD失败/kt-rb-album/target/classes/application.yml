@@ -1,0 +1,62 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: album
+  cloud:
+    nacos:
+      server-addr: env-base:8848
+  rabbitmq:
+    host: env-base # 主机名
+    port: 5672 # 端口
+    virtual-host: / # 虚拟主机
+    username: root # 用户名
+    password: 1111 # 密码
+    listener:
+      simple:
+        prefetch: 1
+        retry:
+          enabled: true # 开启消费者失败重试
+          initial-interval: 1000 # 初始的失败等待时长为1秒
+          multiplier: 3 # 下次失败的等待时长倍数，下次等待时长 = multiplier * last-interval
+          max-attempts: 4 # 最大重试次数
+          stateless: true # true无状态；false有状态。如果业务中包含事务，这里改为false
+  elasticsearch:
+    uris: env-base:9200
+  datasource:
+    url: jdbc:mysql://env-base:3306/redbook_db?characterEncoding=utf8&useSSL=false
+    username: root
+    password: 1111
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: env-base
+      port: 6379
+    mongodb:
+      uri: mongodb://192.168.73.3:27017/redbook_db
+      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy # 自动转驼峰
+    # 时间处理
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+  # 配置静态资源路径
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+    static-path-pattern: /image/**
+  web:
+    resources:
+      static-locations: file:D:/codeRepositories/project/redbook/backend/kt-redbook/kt-rb-album/src/main/resources/image/
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印 sql
+    map-underscore-to-camel-case: true # 是否开启下划线和驼峰的映射
+    cache-enabled: false # 是否开启二级缓存
+  global-config:
+    db-config:
+      id-type: auto # 默认雪花算法，另外还有 auto(自增id) assign_uuid(uuid)
+      update-strategy: not_null # 更新策略: 只更新非空字段
+
+save-path:
+  photo: D:/codeRepositories/project/redbook/backend/kt-redbook/kt-rb-album/src/main/resources/image/

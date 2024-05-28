@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/kt-base/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kt-base/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kt-base/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kt-feign/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kt-feign/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kt-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kt-gateway/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kt-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kt-rb-album/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kt-rb-album/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kt-rb-album/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kt-rb-msg/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kt-rb-user/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kt-rb-user/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kt-rb-user/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

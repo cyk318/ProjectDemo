@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    ports:
+      - "10010:10010"
+    network_mode: "host"
+
+  album:
+    build:
+      context: ./album
+      dockerfile: Dockerfile
+    ports:
+      - "9001:9001"
+    volumes:
+      - ~/apps/image/album:/apps/image/album
+    network_mode: "host"
+
+  user:
+    build:
+      context: ./user
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    volumes:
+      - ~/apps/image/user:/apps/image/user
+    network_mode: "host"

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="kt-base" />
+        <module name="kt-feign" />
+        <module name="kt-gateway" />
+        <module name="kt-rb-msg" />
+        <module name="kt-rb-user" />
+        <module name="kt-rb-album" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="kt-base" options="-parameters" />
+      <module name="kt-feign" options="-parameters" />
+      <module name="kt-gateway" options="-parameters" />
+      <module name="kt-rb-album" options="-parameters" />
+      <module name="kt-rb-msg" options="-parameters" />
+      <module name="kt-rb-user" options="-parameters" />
+      <module name="kt-redbook" options="" />
+    </option>
+  </component>
+</project>
