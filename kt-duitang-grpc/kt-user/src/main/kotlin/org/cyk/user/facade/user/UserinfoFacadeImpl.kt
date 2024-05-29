@@ -4,15 +4,20 @@ import io.grpc.stub.StreamObserver
 import net.devh.boot.grpc.server.service.GrpcService
 import org.cyk.UserinfoProto
 import org.cyk.UserinfoServiceGrpc.UserinfoServiceImplBase
+import org.cyk.user.domain.LoginHandler
 
 @GrpcService
-class UserinfoFacadeImpl: UserinfoServiceImplBase() {
+class UserinfoFacadeImpl(
+    private val loginHandler: LoginHandler
+): UserinfoServiceImplBase() {
 
     override fun login(
         request: UserinfoProto.LoginReq,
         responseObserver: StreamObserver<UserinfoProto.LoginResp>
     ) {
-        super.login(request, responseObserver)
+        val r = loginHandler.handler(request)
+        responseObserver.onNext(r)
+        responseObserver.onCompleted()
     }
 
     override fun reg(

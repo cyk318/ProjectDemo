@@ -9,10 +9,10 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class GrpcConfig {
 
-    @Value("\${grpc-client.host}")
+    @Value("\${grpc-client.user.host}")
     private var host: String = ""
 
-    @Value("\${grpc-client.port}")
+    @Value("\${grpc-client.user.port}")
     private var port: Int = -1
 
     @Bean

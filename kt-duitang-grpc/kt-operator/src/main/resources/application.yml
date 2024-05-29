@@ -4,4 +4,7 @@ server:
 spring:
   application:
     name: operator
-
+grpc-client:
+  user:
+    host: 9000
+    port: 127.0.0.1

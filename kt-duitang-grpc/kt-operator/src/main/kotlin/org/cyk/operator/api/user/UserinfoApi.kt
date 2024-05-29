@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/user")
 class UserinfoApi(
-    val userinfoGrpcStub: UserinfoServiceBlockingStub
+    private val userinfoGrpcStub: UserinfoServiceBlockingStub
 ) {
 
     @PostMapping("/login")

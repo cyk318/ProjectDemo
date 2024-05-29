@@ -3,5 +3,9 @@ server:
 
 spring:
   application:
-    name: operator
+    name: user
+  data:
+    mongodb:
+      uri: mongodb://env-base:27017/duitang-grpc
+      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy # 自动转驼峰
 
