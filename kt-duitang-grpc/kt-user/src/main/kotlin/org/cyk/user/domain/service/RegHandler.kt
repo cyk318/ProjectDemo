@@ -1,9 +1,10 @@
 package org.cyk.user.domain.service
 
 import org.cyk.UserinfoProto
+import org.cyk.common.ApiStatus
+import org.cyk.common.AppException
 import org.cyk.user.repo.UserinfoRepo
 import org.springframework.stereotype.Component
-import java.lang.RuntimeException
 
 @Component
 class RegHandler(
@@ -13,7 +14,7 @@ class RegHandler(
     fun handler(request: UserinfoProto.RegReq): UserinfoProto.RegResp {
         //1.参数校验
         val userinfo = userinfoRepo.queryByUsername(request.username)
-        if (userinfo != null) throw RuntimeException("该用户已存在！${userinfo.username}")
+        if (userinfo != null) throw AppException(ApiStatus.INVALID_PARAM, "该用户已存在！${userinfo.username}")
 
         //2.新增用户
         userinfoRepo.save(request)

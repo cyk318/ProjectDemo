@@ -1,5 +1,6 @@
 package org.cyk.operator.infra.config
 
+import io.grpc.StatusRuntimeException
 import jakarta.validation.ConstraintViolationException
 import org.slf4j.LoggerFactory
 import org.springframework.web.bind.MethodArgumentNotValidException
@@ -33,7 +34,8 @@ class BaseExceptionHandler {
         ConstraintViolationException::class,
         MissingRequestValueException::class,
         MethodArgumentTypeMismatchException::class,
-        IllegalArgumentException::class
+        IllegalArgumentException::class,
+        StatusRuntimeException::class, //grpc 异常
     )
     fun handlerParamException(ex: Exception): ApiResp<*> {
         ex.printStackTrace()

@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c32d339-e30d-4202-978d-d93cd6e2b7ae" name="Changes" comment="feat: grpc reg login">
+    <list default="true" id="2c32d339-e30d-4202-978d-d93cd6e2b7ae" name="Changes" comment="feat: grpc reg login end">
+      <change afterPath="$PROJECT_DIR$/kt-common/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kt-common/src/main/kotlin/org/cyk/common/ApiStatus.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kt-common/src/main/kotlin/org/cyk/common/AppException.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/infra/config/GlobalGrpcExceptionHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kt-operator/src/main/kotlin/org/cyk/operator/api/user/UserinfoApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-operator/src/main/kotlin/org/cyk/operator/api/user/UserinfoApi.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/UserApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/UserApplication.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/repo/impl/UserinfoRepoImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/repo/impl/UserinfoRepoImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kt-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kt-operator/src/main/kotlin/org/cyk/operator/infra/config/BaseExceptionHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-operator/src/main/kotlin/org/cyk/operator/infra/config/BaseExceptionHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kt-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/domain/service/LoginHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/domain/service/LoginHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/domain/service/RegHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/domain/service/RegHandler.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +68,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "spring.configuration.checksum": "8200992ce7e8ca67bc176bf40bec2d45",
     "vue.rearranger.settings.migration": "true"
@@ -80,6 +87,9 @@
       <recent name="D:\codeRepositories\GitHub\ProjectDemo\kt-duitang-grpc\kt-user\src\main\kotlin\org\cyk\user\domain\service" />
       <recent name="D:\codeRepositories\GitHub\ProjectDemo\kt-duitang-grpc\kt-user\src\main\kotlin\org\cyk\user" />
       <recent name="D:\codeRepositories\GitHub\ProjectDemo\kt-duitang-grpc\kt-operator\src\main\kotlin\org\cyk\operator" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="org.cyk.common" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -135,7 +145,7 @@
       <workItem from="1716941002789" duration="2563000" />
       <workItem from="1716943579694" duration="3599000" />
       <workItem from="1716947192953" duration="203000" />
-      <workItem from="1716951410895" duration="5427000" />
+      <workItem from="1716951410895" duration="6749000" />
     </task>
     <task id="LOCAL-00001" summary="feat: init">
       <option name="closed" value="true" />
@@ -161,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716955120606</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: grpc reg login end">
+      <option name="closed" value="true" />
+      <created>1716956869116</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716956869116</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +189,7 @@
     <MESSAGE value="feat: init" />
     <MESSAGE value="feat: grpc init" />
     <MESSAGE value="feat: grpc reg login" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: grpc reg login" />
+    <MESSAGE value="feat: grpc reg login end" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: grpc reg login end" />
   </component>
 </project>

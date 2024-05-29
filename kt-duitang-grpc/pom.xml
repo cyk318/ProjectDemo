@@ -10,6 +10,7 @@
         <module>kt-user</module>
         <module>kt-article</module>
         <module>kt-proto</module>
+        <module>kt-common</module>
     </modules>
     <groupId>org.cyk</groupId>
     <version>1.0-SNAPSHOT</version>
