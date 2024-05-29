@@ -1,18 +1,23 @@
 package org.cyk.user.repo.impl
 
+import org.apache.coyote.http11.filters.SavedRequestInputFilter
 import org.cyk.UserinfoProto
-import org.cyk.user.domain.Userinfo
 import org.cyk.user.infra.RedisKey
+import org.cyk.user.infra.utils.PasswordUtils
 import org.cyk.user.repo.UserinfoRepo
+import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.MongoTemplate
+import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.query.Criteria
 import org.springframework.data.mongodb.core.query.Query
 import org.springframework.data.redis.core.StringRedisTemplate
 import org.springframework.stereotype.Repository
 import java.util.concurrent.TimeUnit
 
+@Document(collation = "user_info")
 data class UserinfoDo (
-    val id: Long? = null,
+    @Id
+    val id: String? = null,
     val username: String,
     val password: String,
     val avatarPath: String = "www.cyk.com",
@@ -29,7 +34,7 @@ class UserinfoRepoImpl(
         mongoTemplate.save(obj)
     }
 
-    override fun saveToken(token: String, id: Long) {
+    override fun saveToken(token: String, id: String) {
         redisTemplate.opsForValue().set(RedisKey.getToken(id), token, 1, TimeUnit.DAYS)
     }
 
@@ -52,9 +57,16 @@ class UserinfoRepoImpl(
     private fun map(req: UserinfoProto.RegReq) = with(req) {
         UserinfoDo (
             username = username,
-            password = password,
+            password = PasswordUtils.encrypt(password),
         )
     }
 
 }
+
+data class Userinfo (
+    val id: String,
+    val username: String,
+    val password: String,
+    val avatarPath: String,
+)
 

@@ -1,11 +1,15 @@
-server:
-  port: 9000
+grpc:
+  server:
+    port: 9000
 
 spring:
   application:
     name: user
+  main:
+    web-application-type: none
   data:
     mongodb:
-      uri: mongodb://env-base:27017/duitang-grpc
+      uri: mongodb://env-base:27017/duitang
       field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy # 自动转驼峰
+
 

@@ -4,6 +4,6 @@ object RedisKey {
 
     const val TOKEN = "TOKEN_"
 
-    fun getToken(id: Long) = "$TOKEN$id"
+    fun getToken(id: String) = "$TOKEN$id"
 
 }
