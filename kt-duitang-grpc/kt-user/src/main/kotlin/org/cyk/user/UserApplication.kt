@@ -1,7 +1,6 @@
 package org.cyk.user
 
-import net.devh.boot.grpc.server.autoconfigure.GrpcServerAutoConfiguration
-import net.devh.boot.grpc.server.autoconfigure.GrpcServerFactoryAutoConfiguration
+import net.devh.boot.grpc.server.autoconfigure.*
 import org.springframework.boot.autoconfigure.ImportAutoConfiguration
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
@@ -21,5 +20,5 @@ import org.springframework.boot.runApplication
 class UserApplication
 
 fun main(args: Array<String>) {
-    runApplication<String>(*args)
+    runApplication<UserApplication>(*args)
 }

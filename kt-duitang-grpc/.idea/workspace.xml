@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c32d339-e30d-4202-978d-d93cd6e2b7ae" name="Changes" comment="feat: grpc init">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kt-operator/src/main/kotlin/org/cyk/operator/infra/config/AppException.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kt-operator/src/main/kotlin/org/cyk/operator/infra/config/BaseExceptionHandler.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/domain/service/RegHandler.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/infra/utils/JwtUtils.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/infra/utils/PasswordUtils.kt" afterDir="false" />
+    <list default="true" id="2c32d339-e30d-4202-978d-d93cd6e2b7ae" name="Changes" comment="feat: grpc reg login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kt-proto/src/main/proto/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/kt-proto/src/main/proto/user.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kt-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/domain/LoginHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/domain/service/LoginHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/facade/user/UserinfoFacadeImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/facade/user/UserinfoFacadeImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/infra/RedisKey.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/infra/RedisKey.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/repo/UserinfoRepo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/repo/UserinfoRepo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kt-operator/src/main/kotlin/org/cyk/operator/api/user/UserinfoApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-operator/src/main/kotlin/org/cyk/operator/api/user/UserinfoApi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/UserApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/UserApplication.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/repo/impl/UserinfoRepoImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/repo/impl/UserinfoRepoImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kt-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/src/main/resources/application.yml" afterDir="false" />
     </list>
@@ -54,6 +44,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -88,7 +82,14 @@
       <recent name="D:\codeRepositories\GitHub\ProjectDemo\kt-duitang-grpc\kt-operator\src\main\kotlin\org\cyk\operator" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.UserApplication">
     <configuration name="OperatorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="kt-operator" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.cyk.operator.OperatorApplication" />
@@ -102,8 +103,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="kt-user" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.cyk.user.UserApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.cyk.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.UserApplication" />
         <item itemvalue="Spring Boot.OperatorApplication" />
       </list>
     </recent_temporary>
@@ -120,7 +135,7 @@
       <workItem from="1716941002789" duration="2563000" />
       <workItem from="1716943579694" duration="3599000" />
       <workItem from="1716947192953" duration="203000" />
-      <workItem from="1716951410895" duration="3669000" />
+      <workItem from="1716951410895" duration="5427000" />
     </task>
     <task id="LOCAL-00001" summary="feat: init">
       <option name="closed" value="true" />
@@ -138,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716947384243</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: grpc reg login">
+      <option name="closed" value="true" />
+      <created>1716955120606</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716955120606</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +170,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: init" />
     <MESSAGE value="feat: grpc init" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: grpc init" />
+    <MESSAGE value="feat: grpc reg login" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: grpc reg login" />
   </component>
 </project>

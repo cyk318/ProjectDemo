@@ -1,6 +1,5 @@
 package org.cyk.user.repo.impl
 
-import org.apache.coyote.http11.filters.SavedRequestInputFilter
 import org.cyk.UserinfoProto
 import org.cyk.user.infra.RedisKey
 import org.cyk.user.infra.utils.PasswordUtils
@@ -14,7 +13,7 @@ import org.springframework.data.redis.core.StringRedisTemplate
 import org.springframework.stereotype.Repository
 import java.util.concurrent.TimeUnit
 
-@Document(collation = "user_info")
+@Document("user_info")
 data class UserinfoDo (
     @Id
     val id: String? = null,

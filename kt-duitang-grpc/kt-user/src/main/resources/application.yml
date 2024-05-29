@@ -11,5 +11,7 @@ spring:
     mongodb:
       uri: mongodb://env-base:27017/duitang
       field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy # 自动转驼峰
-
+    redis:
+      host: env-base
+      port: 6379
 
