@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c32d339-e30d-4202-978d-d93cd6e2b7ae" name="Changes" comment="feat: grpc reg login end">
-      <change afterPath="$PROJECT_DIR$/kt-common/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kt-common/src/main/kotlin/org/cyk/common/ApiStatus.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kt-common/src/main/kotlin/org/cyk/common/AppException.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/infra/config/GlobalGrpcExceptionHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+    <list default="true" id="2c32d339-e30d-4202-978d-d93cd6e2b7ae" name="Changes" comment="feat: grpc exception handler">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kt-operator/src/main/kotlin/org/cyk/operator/infra/config/BaseExceptionHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-operator/src/main/kotlin/org/cyk/operator/infra/config/BaseExceptionHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kt-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kt-common/src/main/kotlin/org/cyk/common/AppException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-common/src/main/kotlin/org/cyk/common/AppException.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/domain/service/LoginHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/domain/service/LoginHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/domain/service/RegHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/domain/service/RegHandler.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,37 +40,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "D:/codeRepositories/GitHub/ProjectDemo/kt-duitang-grpc/kt-user/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "spring.configuration.checksum": "8200992ce7e8ca67bc176bf40bec2d45",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/codeRepositories/GitHub/ProjectDemo/kt-duitang-grpc/kt-user/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;8200992ce7e8ca67bc176bf40bec2d45&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mongo"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mongo&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\codeRepositories\GitHub\ProjectDemo\kt-duitang-grpc\kt-user\src\main\resources" />
@@ -145,7 +137,9 @@
       <workItem from="1716941002789" duration="2563000" />
       <workItem from="1716943579694" duration="3599000" />
       <workItem from="1716947192953" duration="203000" />
-      <workItem from="1716951410895" duration="6749000" />
+      <workItem from="1716951410895" duration="8186000" />
+      <workItem from="1716974711324" duration="1999000" />
+      <workItem from="1717061495123" duration="58000" />
     </task>
     <task id="LOCAL-00001" summary="feat: init">
       <option name="closed" value="true" />
@@ -179,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716956869116</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: grpc exception handler">
+      <option name="closed" value="true" />
+      <created>1716958225089</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716958225089</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +192,7 @@
     <MESSAGE value="feat: grpc init" />
     <MESSAGE value="feat: grpc reg login" />
     <MESSAGE value="feat: grpc reg login end" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: grpc reg login end" />
+    <MESSAGE value="feat: grpc exception handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: grpc exception handler" />
   </component>
 </project>

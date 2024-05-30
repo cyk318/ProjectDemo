@@ -8,7 +8,6 @@ import org.cyk.user.infra.utils.JwtUtils
 import org.cyk.user.infra.utils.PasswordUtils
 import org.cyk.user.repo.UserinfoRepo
 import org.springframework.stereotype.Component
-import java.lang.RuntimeException
 
 @Component
 class LoginHandler(
