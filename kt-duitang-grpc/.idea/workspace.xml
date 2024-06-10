@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c32d339-e30d-4202-978d-d93cd6e2b7ae" name="Changes" comment="feat: grpc exception handler">
+    <list default="true" id="2c32d339-e30d-4202-978d-d93cd6e2b7ae" name="Changes" comment="feat: grpc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kt-common/src/main/kotlin/org/cyk/common/AppException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-common/src/main/kotlin/org/cyk/common/AppException.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/domain/service/LoginHandler.kt" beforeDir="false" afterPath="$PROJECT_DIR$/kt-user/src/main/kotlin/org/cyk/user/domain/service/LoginHandler.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +137,8 @@
       <workItem from="1716947192953" duration="203000" />
       <workItem from="1716951410895" duration="8186000" />
       <workItem from="1716974711324" duration="1999000" />
-      <workItem from="1717061495123" duration="58000" />
+      <workItem from="1717061495123" duration="1297000" />
+      <workItem from="1717120472741" duration="242000" />
     </task>
     <task id="LOCAL-00001" summary="feat: init">
       <option name="closed" value="true" />
@@ -181,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716958225089</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: grpc">
+      <option name="closed" value="true" />
+      <created>1717061584530</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1717061584530</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +200,7 @@
     <MESSAGE value="feat: grpc reg login" />
     <MESSAGE value="feat: grpc reg login end" />
     <MESSAGE value="feat: grpc exception handler" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: grpc exception handler" />
+    <MESSAGE value="feat: grpc" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: grpc" />
   </component>
 </project>
