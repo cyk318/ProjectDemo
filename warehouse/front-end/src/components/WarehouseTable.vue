@@ -1,6 +1,6 @@
 <template>
   <div id="right-table">
-    <el-table v-loading="true" :data="warehouseTable" style="width: 100%">
+    <el-table v-loading="loading" :data="warehouseTable" style="width: 100%">
       <el-table-column label="ID" prop="id" />
       <el-table-column label="名称" prop="name" />
       <el-table-column label="地址" prop="address" />
@@ -21,19 +21,22 @@
 
 <script setup>
 
-const loading = ref(true)
-const warehouseTable = [
-  {
-    id: '111',
-    name: '一号仓库',
-    address: '北京市海淀区',
-  },
-  {
-    id: '222',
-    name: '二号仓库',
-    address: '上海市浦东区',
-  },
-]
+import ax from "../http/axios_utils.js";
+
+//加载中...
+const loading = ref()
+onBeforeMount(() => {
+  loading.value = true
+})
+
+//获取所有仓库信息
+const warehouseTable = ref()
+onMounted(() => {
+  ax.get('/warehouse/list').then((success) => {
+    warehouseTable.value = success.data.data
+    loading.value = false
+  })
+})
 
 </script>
 

@@ -14,4 +14,16 @@ export default defineConfig({
       resolvers: [ElementPlusResolver(), NaiveUiResolver()]
     })
   ],
+
+  // server: {
+  //   proxy: {
+  //     '/api': {
+  //       target: 'http://localhost:9000',
+  //       changeOrigin: true,
+  //       rewrite: (path) => path.replace(/^\/api/, '')
+  //     }
+  //   }
+  // },
 })
+
+

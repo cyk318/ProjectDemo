@@ -9,7 +9,7 @@
           <el-button
               size="small"
               type="danger"
-              @click="handleDelete(scope.$index, scope.row)"
+              @click=""
           >
             删除
           </el-button>
@@ -20,18 +20,16 @@
 </template>
 
 <script setup>
-const adminData = [
-  {
-    id: 'aaa',
-    username: '杜鹏站',
-    password: '1111',
-  },
-  {
-    id: 'bbb',
-    username: '东郊能',
-    password: '2222',
-  },
-]
+import ax from "../http/axios_utils.js";
+
+const adminData = ref()
+onMounted(() => {
+  //查询所有管理员
+  ax.get("/admin/list")
+      .then(function (success) { //success 是自定义响应的参数名
+        adminData.value = success.data.data
+      })
+})
 
 </script>
 

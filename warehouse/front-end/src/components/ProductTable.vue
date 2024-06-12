@@ -22,22 +22,15 @@
 </template>
 
 <script setup>
-const productData = [
-  {
-    id: '111',
-    warehouseId: 'aaa',
-    name: '蔚来',
-    description: '蔚来汽车，你值得拥有',
-    price: 100.1
-  },
-  {
-    id: '222',
-    warehouseId: 'bbb',
-    name: 'BMW',
-    description: '宝马！！！',
-    price: 199.1
-  }
-]
+import ax from "../http/axios_utils.js";
+
+//获取所有产品信息
+const productData = ref()
+onMounted(() => {
+  ax.get('/product/list').then((success) => {
+    productData.value = success.data.data
+  })
+})
 
 </script>
 

@@ -8,6 +8,7 @@ import org.cyk.warehouse.repo.impl.ProductDo
 import org.springframework.web.bind.annotation.*
 
 
+
 @RestController
 @RequestMapping("/product")
 class ProductApi(
