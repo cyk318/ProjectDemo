@@ -23,6 +23,8 @@ class WarehouseRepoImpl(
     val mongoTemplate: MongoTemplate
 ): WarehouseRepo {
 
-
+    override fun queryById(id: String): WarehouseDo? {
+        return mongoTemplate.findById(id, WarehouseDo::class.java)
+    }
 
 }

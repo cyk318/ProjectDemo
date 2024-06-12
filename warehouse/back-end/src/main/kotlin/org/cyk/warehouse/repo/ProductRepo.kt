@@ -10,5 +10,6 @@ interface ProductRepo {
     fun queryByWarehouseId(id: String): List<ProductDo>
 
     fun delByWarehouseId(id: String): Long
+    fun delById(id: String): Long
 
 }

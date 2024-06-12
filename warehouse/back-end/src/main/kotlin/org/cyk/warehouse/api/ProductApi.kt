@@ -1,24 +1,27 @@
 package org.cyk.warehouse.api
 
 import org.cyk.warehouse.config.ApiResp
+import org.cyk.warehouse.config.AppException
 import org.cyk.warehouse.repo.ProductRepo
+import org.cyk.warehouse.repo.WarehouseRepo
 import org.cyk.warehouse.repo.impl.ProductDo
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 
 @RestController
 @RequestMapping("/product")
 class ProductApi(
-    private val productRepo: ProductRepo
+    private val productRepo: ProductRepo,
+    private val warehouseRepo: WarehouseRepo,
 ) {
 
     @PostMapping("/add")
-    fun add(dto: AddProductDto): ApiResp<Int> {
-        //将产品信息添加到数据
+    fun add(
+        @RequestBody dto: AddProductDto
+    ): ApiResp<Int> {
+        //1.判断对应的库存是否存在
+        warehouseRepo.queryById(dto.warehouseId) ?: throw AppException("库存不存在，无法添加产品！")
+        //2.将产品信息添加到数据
         productRepo.save(dto)
         return ApiResp.ok(1)
     }
@@ -38,6 +41,14 @@ class ProductApi(
     ): ApiResp<Long> {
         //根据库存 id 删除该库存下的所有产品
         val result = productRepo.delByWarehouseId(id)
+        return ApiResp.ok(result)
+    }
+
+    @GetMapping("/del/{id}")
+    fun del(
+        @PathVariable("id") id: String
+    ): ApiResp<Long> {
+        val result = productRepo.delById(id)
         return ApiResp.ok(result)
     }
 

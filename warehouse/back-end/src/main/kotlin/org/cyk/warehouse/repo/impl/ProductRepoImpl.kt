@@ -41,6 +41,12 @@ class ProductRepoImpl(
         return result.deletedCount
     }
 
+    override fun delById(id: String): Long {
+        val c = Criteria.where("_id").`is`(id)
+        val result = mongoTemplate.remove(Query.query(c), ProductDo::class.java)
+        return result.deletedCount
+    }
+
     private fun map(dto: AddProductDto): ProductDo = with(dto) {
         ProductDo(
             warehouseId = warehouseId,
