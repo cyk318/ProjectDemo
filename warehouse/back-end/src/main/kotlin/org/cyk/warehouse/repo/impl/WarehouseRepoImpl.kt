@@ -7,7 +7,6 @@ import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.stereotype.Repository
 
-
 @Document("w_warehouse")
 data class WarehouseDo(
     @Id
@@ -26,11 +25,15 @@ class WarehouseRepoImpl(
 
     override fun save(dto: AddWarehouseDto) {
         val obj: WarehouseDo = map(dto)
-        mongoTemplate.save(dto)
+        mongoTemplate.save(obj)
     }
 
     override fun queryById(id: String): WarehouseDo? {
         return mongoTemplate.findById(id, WarehouseDo::class.java)
+    }
+
+    override fun queryAll(): List<WarehouseDo> {
+        return mongoTemplate.findAll(WarehouseDo::class.java)
     }
 
     private fun map(dto: AddWarehouseDto): WarehouseDo = with(dto) {

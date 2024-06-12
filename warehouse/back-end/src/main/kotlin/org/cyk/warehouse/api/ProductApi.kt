@@ -26,6 +26,12 @@ class ProductApi(
         return ApiResp.ok(1)
     }
 
+    @GetMapping("list")
+    fun list(): ApiResp<List<ProductDo>> {
+        val result = productRepo.queryAll()
+        return ApiResp.ok(result)
+    }
+
     @GetMapping("/query/from_warehouse/{id}")
     fun queryFromWarehouse(
         @PathVariable("id") id: String

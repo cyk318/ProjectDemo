@@ -47,6 +47,10 @@ class ProductRepoImpl(
         return result.deletedCount
     }
 
+    override fun queryAll(): List<ProductDo> {
+        return mongoTemplate.findAll(ProductDo::class.java)
+    }
+
     private fun map(dto: AddProductDto): ProductDo = with(dto) {
         ProductDo(
             warehouseId = warehouseId,

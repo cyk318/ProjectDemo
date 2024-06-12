@@ -8,6 +8,7 @@ interface WarehouseRepo {
     fun save(dto: AddWarehouseDto)
 
     fun queryById(id: String): WarehouseDo?
+    fun queryAll(): List<WarehouseDo>
 
 
 }
