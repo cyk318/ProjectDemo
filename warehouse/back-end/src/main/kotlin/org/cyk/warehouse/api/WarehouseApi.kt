@@ -1,9 +1,11 @@
 package org.cyk.warehouse.api
 
 import org.cyk.warehouse.config.ApiResp
+import org.cyk.warehouse.repo.ProductRepo
 import org.cyk.warehouse.repo.WarehouseRepo
 import org.cyk.warehouse.repo.impl.WarehouseDo
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/warehouse")
 class WarehouseApi(
     private val warehouseRepo: WarehouseRepo,
+    private val productRepo: ProductRepo,
 ) {
 
     @PostMapping("/add")
@@ -29,6 +32,17 @@ class WarehouseApi(
         //从数据库中查询所有仓库信息
         val result = warehouseRepo.queryAll()
         return ApiResp.ok(result)
+    }
+
+    @GetMapping("/del/{id}")
+    fun del(
+        @PathVariable("id") id: String
+    ): ApiResp<Long> {
+        //1.先删除该仓库下的所有产品信息
+        val result1 = productRepo.delByWarehouseId(id)
+        //2.再删除仓库信息
+        val result2 = warehouseRepo.delById(id)
+        return ApiResp.ok(result1 + result2)
     }
 
 }

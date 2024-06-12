@@ -5,6 +5,8 @@ import org.cyk.warehouse.repo.WarehouseRepo
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.mapping.Document
+import org.springframework.data.mongodb.core.query.Criteria
+import org.springframework.data.mongodb.core.query.Query
 import org.springframework.stereotype.Repository
 
 @Document("w_warehouse")
@@ -34,6 +36,12 @@ class WarehouseRepoImpl(
 
     override fun queryAll(): List<WarehouseDo> {
         return mongoTemplate.findAll(WarehouseDo::class.java)
+    }
+
+    override fun delById(id: String): Long {
+        val c = Criteria.where("_id").`is`(id)
+        val result =mongoTemplate.remove(Query.query(c), WarehouseDo::class.java)
+        return result.deletedCount
     }
 
     private fun map(dto: AddWarehouseDto): WarehouseDo = with(dto) {

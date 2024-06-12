@@ -5,6 +5,8 @@ import org.cyk.warehouse.config.ApiResp
 import org.cyk.warehouse.config.AppException
 import org.cyk.warehouse.config.HttpSessionKey
 import org.cyk.warehouse.repo.AdminRepo
+import org.cyk.warehouse.repo.impl.AdminDo
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -42,6 +44,11 @@ class AdminApi(
         return ApiResp.ok(1)
     }
 
+    @GetMapping("/list")
+    fun list(): ApiResp<List<AdminDo>> {
+        val result = adminRepo.queryAll()
+        return ApiResp.ok(result)
+    }
 
 }
 data class RegDto (

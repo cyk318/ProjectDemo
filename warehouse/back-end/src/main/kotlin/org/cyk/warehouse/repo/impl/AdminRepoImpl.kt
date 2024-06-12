@@ -32,6 +32,10 @@ class AdminRepoImpl(
         mongoTemplate.save(o)
     }
 
+    override fun queryAll(): List<AdminDo> {
+        return mongoTemplate.findAll(AdminDo::class.java)
+    }
+
     private fun map(dto: RegDto) = with(dto) {
         AdminDo (
             username = username,

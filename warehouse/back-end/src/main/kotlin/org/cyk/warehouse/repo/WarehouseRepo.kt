@@ -9,6 +9,8 @@ interface WarehouseRepo {
 
     fun queryById(id: String): WarehouseDo?
     fun queryAll(): List<WarehouseDo>
+    fun delById(id: String): Long
+
 
 
 }
