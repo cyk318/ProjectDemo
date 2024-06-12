@@ -1,8 +1,14 @@
 <template>
   <div id="right-table">
+
     <div class="search-product">
       <el-input v-model="input" style="width: 240px" placeholder="请输入库存ID..." />
       <el-button type="primary" plain>搜索</el-button>
+    </div>
+
+    <div class="del-product">
+      <el-input v-model="input" style="width: 240px" placeholder="请输入库存ID..." />
+      <el-button type="primary" plain>删除该库存ID下的所有产品</el-button>
     </div>
 
     <el-table :data="productData" style="width: 100%">
