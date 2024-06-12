@@ -36,6 +36,12 @@ class AdminRepoImpl(
         return mongoTemplate.findAll(AdminDo::class.java)
     }
 
+    override fun del(id: String): Long {
+        val c = Criteria.where("_id").`is`(id)
+        val result = mongoTemplate.remove(Query.query(c), AdminDo::class.java)
+        return result.deletedCount
+    }
+
     private fun map(dto: RegDto) = with(dto) {
         AdminDo (
             username = username,

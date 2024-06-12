@@ -7,6 +7,7 @@ import org.cyk.warehouse.config.HttpSessionKey
 import org.cyk.warehouse.repo.AdminRepo
 import org.cyk.warehouse.repo.impl.AdminDo
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
@@ -46,7 +47,16 @@ class AdminApi(
 
     @GetMapping("/list")
     fun list(): ApiResp<List<AdminDo>> {
+        //从数据库中查询所有用户信息
         val result = adminRepo.queryAll()
+        return ApiResp.ok(result)
+    }
+
+    @GetMapping("/del/{id}")
+    fun del(
+        @PathVariable id: String
+    ): ApiResp<Long> {
+        val result = adminRepo.del(id)
         return ApiResp.ok(result)
     }
 
