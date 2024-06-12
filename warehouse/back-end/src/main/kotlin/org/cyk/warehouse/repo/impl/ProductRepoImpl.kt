@@ -1,5 +1,6 @@
 package org.cyk.warehouse.repo.impl
 
+import org.cyk.warehouse.api.AddProductDto
 import org.cyk.warehouse.repo.ProductRepo
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.MongoTemplate
@@ -24,6 +25,11 @@ class ProductRepoImpl(
     private val mongoTemplate: MongoTemplate,
 ):ProductRepo {
 
+    override fun save(dto: AddProductDto) {
+        val obj: ProductDo = map(dto)
+        mongoTemplate.save(obj)
+    }
+
     override fun queryByWarehouseId(id: String): List<ProductDo> {
         val c = Criteria.where("warehouse_id").`is`(id)
         return mongoTemplate.find(Query.query(c), ProductDo::class.java)
@@ -33,6 +39,15 @@ class ProductRepoImpl(
         val c = Criteria.where("warehouse_id").`is`(id)
         val result = mongoTemplate.remove(Query.query(c), ProductDo::class.java)
         return result.deletedCount
+    }
+
+    private fun map(dto: AddProductDto): ProductDo = with(dto) {
+        ProductDo(
+            warehouseId = warehouseId,
+            name = name,
+            description = description,
+            price = price,
+        )
     }
 
 }

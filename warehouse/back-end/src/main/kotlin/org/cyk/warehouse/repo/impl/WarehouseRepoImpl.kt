@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository
 @Document("w_warehouse")
 data class WarehouseDo(
     @Id
-    val id: String? = null,
+    val id: String,
     val name: String,
     val address: String, //仓库地址
 )
