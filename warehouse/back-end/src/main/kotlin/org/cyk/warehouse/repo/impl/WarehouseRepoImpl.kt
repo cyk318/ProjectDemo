@@ -7,8 +7,8 @@ import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.stereotype.Repository
 
 
-@Document("warehouse")
-data class Warehouse(
+@Document("w_warehouse")
+data class WarehouseDo(
     @Id
     val id: Int? = null,
     val name: String,

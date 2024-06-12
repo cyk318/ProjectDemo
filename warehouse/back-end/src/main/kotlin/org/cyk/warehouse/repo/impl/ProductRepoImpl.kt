@@ -6,8 +6,8 @@ import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.stereotype.Repository
 
-@Document("product")
-data class Product(
+@Document("w_product")
+data class ProductDo(
     @Id
     val id: String,
     val warehouseId: String, //仓库 id
