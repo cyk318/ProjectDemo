@@ -1,19 +1,17 @@
 <template>
   <div id="right-table">
-    <el-table :data="tableData" style="width: 100%">
-      <el-table-column label="Date" prop="date" />
-      <el-table-column label="Name" prop="name" />
-      <el-table-column label="Operations">
+    <el-table :data="adminData" style="width: 100%">
+      <el-table-column label="ID" prop="id" />
+      <el-table-column label="用户名" prop="username" />
+      <el-table-column label="密码" prop="password" />
+      <el-table-column label="操作">
         <template #default="scope">
-          <el-button size="small" @click="handleEdit(scope.$index, scope.row)">
-            Edit
-          </el-button>
           <el-button
               size="small"
               type="danger"
               @click="handleDelete(scope.$index, scope.row)"
           >
-            Delete
+            删除
           </el-button>
         </template>
       </el-table-column>
@@ -22,28 +20,19 @@
 </template>
 
 <script setup>
-const tableData = [
+const adminData = [
   {
-    date: '2016-05-03',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
+    id: 'aaa',
+    username: '杜鹏站',
+    password: '1111',
   },
   {
-    date: '2016-05-02',
-    name: 'John',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-04',
-    name: 'Morgan',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Jessy',
-    address: 'No. 189, Grove St, Los Angeles',
+    id: 'bbb',
+    username: '东郊能',
+    password: '2222',
   },
 ]
+
 </script>
 
 <style lang="less" scoped>

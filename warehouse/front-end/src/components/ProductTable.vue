@@ -1,9 +1,11 @@
 <template>
   <div id="right-table">
-    <el-table v-loading="true" :data="warehouseTable" style="width: 100%">
+    <el-table :data="productData" style="width: 100%">
       <el-table-column label="ID" prop="id" />
-      <el-table-column label="名称" prop="name" />
-      <el-table-column label="地址" prop="address" />
+      <el-table-column label="库存 ID" prop="warehouseId" />
+      <el-table-column label="产品名称" prop="name" />
+      <el-table-column label="产品描述" prop="description" />
+      <el-table-column label="价格" prop="price" />
       <el-table-column label="操作">
         <template #default="scope">
           <el-button
@@ -20,19 +22,21 @@
 </template>
 
 <script setup>
-
-const loading = ref(true)
-const warehouseTable = [
+const productData = [
   {
     id: '111',
-    name: '一号仓库',
-    address: '北京市海淀区',
+    warehouseId: 'aaa',
+    name: '蔚来',
+    description: '蔚来汽车，你值得拥有',
+    price: 100.1
   },
   {
     id: '222',
-    name: '二号仓库',
-    address: '上海市浦东区',
-  },
+    warehouseId: 'bbb',
+    name: 'BMW',
+    description: '宝马！！！',
+    price: 199.1
+  }
 ]
 
 </script>

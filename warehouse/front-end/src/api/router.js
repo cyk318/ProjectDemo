@@ -8,9 +8,24 @@ const router = createRouter({
             redirect: '/admin'
         },
         {
-            name: "管理员信息",
+            name: "admin",
             path: '/admin',
             component: () => import("../components/AdminTable.vue")
+        },
+        {
+            name: "product",
+            path: '/product',
+            component: () => import("../components/ProductTable.vue")
+        },
+        {
+            name: "warehouse",
+            path: '/warehouse',
+            component: () => import("../components/WarehouseTable.vue")
+        },
+        {
+            name: "product_group",
+            path: '/product_group',
+            component: () => import("../components/ProductGroupTable.vue")
         },
     ],
     history: createWebHistory()
