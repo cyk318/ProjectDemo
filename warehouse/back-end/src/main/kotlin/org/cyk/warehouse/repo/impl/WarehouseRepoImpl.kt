@@ -1,5 +1,6 @@
 package org.cyk.warehouse.repo.impl
 
+import org.cyk.warehouse.api.AddWarehouseDto
 import org.cyk.warehouse.repo.WarehouseRepo
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.MongoTemplate
@@ -23,8 +24,21 @@ class WarehouseRepoImpl(
     val mongoTemplate: MongoTemplate
 ): WarehouseRepo {
 
+    override fun save(dto: AddWarehouseDto) {
+        val obj: WarehouseDo = map(dto)
+        mongoTemplate.save(dto)
+    }
+
     override fun queryById(id: String): WarehouseDo? {
         return mongoTemplate.findById(id, WarehouseDo::class.java)
+    }
+
+    private fun map(dto: AddWarehouseDto): WarehouseDo = with(dto) {
+        WarehouseDo(
+            id = id,
+            name = name,
+            address = address,
+        )
     }
 
 }
