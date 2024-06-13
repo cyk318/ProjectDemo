@@ -2,7 +2,7 @@
   <div id="right-table">
 
     <!--新增员工对话框-->
-    <el-button plain @click="addAdminDialog = true">
+    <el-button plain @click="addAdminDialog = true" color="#626aef">
       新增员工信息
     </el-button>
     <el-dialog v-model="addAdminDialog" title="新增员工信息" width="500">
@@ -17,7 +17,7 @@
       <template #footer>
         <div class="dialog-footer">
           <el-button @click="addAdminDialog = false">取消</el-button>
-          <el-button type="primary" @click="addAdminReq" >
+          <el-button color="#626aef"  @click="addAdminReq" >
             确认
           </el-button>
         </div>
@@ -26,7 +26,7 @@
 
 
 <!--修改管理员信息对话框-->
-    <el-button plain @click="updateAdminDialog = true">
+    <el-button plain @click="updateAdminDialog = true" color="#626aef">
       修改员工信息
     </el-button>
     <el-dialog v-model="updateAdminDialog" title="修改员工信息" width="500">
@@ -44,7 +44,7 @@
       <template #footer>
         <div class="dialog-footer">
           <el-button @click="updateAdminDialog = false">取消</el-button>
-          <el-button type="primary" @click="updateAdminReq" >
+          <el-button color="#626aef" @click="updateAdminReq" >
             确认
           </el-button>
         </div>
@@ -62,6 +62,7 @@
               size="small"
               type="danger"
               @click="delAdminReq(scope.row)"
+              color="#626aef"
           >
             删除
           </el-button>

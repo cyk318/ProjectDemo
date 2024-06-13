@@ -13,7 +13,7 @@
       <template #footer>
         <div class="dialog-footer">
           <el-button @click="addAdminDialog = false">取消</el-button>
-          <el-button type="primary" @click="loginReq" >
+          <el-button type="primary" @click="loginReq"  color="#626aef">
             确认
           </el-button>
         </div>
@@ -92,7 +92,7 @@ const logoutReq = () => {
 #nav{
   width: 100%;
   .menu {
-    height: 80px;
+    height: 150px;
   }
 }
 

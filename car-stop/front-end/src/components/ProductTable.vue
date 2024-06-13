@@ -2,7 +2,7 @@
   <div id="right-table">
 
     <!--新增车辆对话框-->
-    <el-button plain @click="addProductDialog = true">
+    <el-button plain @click="addProductDialog = true" color="#626aef">
       新增车辆
     </el-button>
     <el-dialog v-model="addProductDialog" title="新增车辆" width="500">
@@ -23,7 +23,7 @@
       <template #footer>
         <div class="dialog-footer">
           <el-button @click="addProductDialog = false">取消</el-button>
-          <el-button type="primary" @click="addProductReq" >
+          <el-button type="primary" @click="addProductReq" color="#626aef" >
             确认
           </el-button>
         </div>
@@ -32,7 +32,7 @@
 
 
     <!--修改产品信息对话框-->
-    <el-button plain @click="updateProductDialog = true">
+    <el-button plain @click="updateProductDialog = true" color="#626aef">
       修改车辆信息
     </el-button>
     <el-dialog v-model="updateProductDialog" title="修改车辆信息" width="500">
@@ -53,7 +53,7 @@
       <template #footer>
         <div class="dialog-footer">
           <el-button @click="updateProductDialog = false">取消</el-button>
-          <el-button type="primary" @click="updateProductReq" >
+          <el-button type="primary" @click="updateProductReq" color="#626aef" >
             确认
           </el-button>
         </div>
@@ -71,6 +71,7 @@
               size="small"
               type="danger"
               @click="delProductReq(scope.row)"
+              color="#626aef"
           >
             删除
           </el-button>

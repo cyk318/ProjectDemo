@@ -41,7 +41,7 @@
 
 <style lang="less" scoped>
 #left-menu {
-    width: 200px;
+    width: 300px;
     .row {
       display: flex;
       justify-content: center;

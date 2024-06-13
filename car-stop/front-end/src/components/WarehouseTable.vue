@@ -2,7 +2,7 @@
   <div id="right-table">
 
     <!--新增停车场对话框-->
-    <el-button plain @click="addWarehouseDialog = true">
+    <el-button plain @click="addWarehouseDialog = true" color="#626aef">
       新增停车场
     </el-button>
     <el-dialog v-model="addWarehouseDialog" title="新增停车场" width="500">
@@ -20,7 +20,7 @@
       <template #footer>
         <div class="dialog-footer">
           <el-button @click="addWarehouseDialog = false">取消</el-button>
-          <el-button type="primary" @click="addWarehouseReq" >
+          <el-button type="primary" @click="addWarehouseReq"  color="#626aef">
             确认
           </el-button>
         </div>
@@ -29,7 +29,7 @@
 
 
     <!--修改仓库信息对话框-->
-    <el-button plain @click="updateWarehouseDialog = true">
+    <el-button plain @click="updateWarehouseDialog = true" color="#626aef">
       修改仓库信息
     </el-button>
     <el-dialog v-model="updateWarehouseDialog" title="修改停车场信息" width="500">
@@ -47,7 +47,7 @@
       <template #footer>
         <div class="dialog-footer">
           <el-button @click="updateWarehouseDialog = false">取消</el-button>
-          <el-button type="primary" @click="updateWarehouseReq" >
+          <el-button type="primary" @click="updateWarehouseReq" color="#626aef">
             确认
           </el-button>
         </div>
@@ -64,6 +64,7 @@
               size="small"
               type="danger"
               @click="delWarehouseReq(scope.row)"
+              color="#626aef"
           >
             删除
           </el-button>

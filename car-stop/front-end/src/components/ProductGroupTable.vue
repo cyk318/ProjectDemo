@@ -3,12 +3,12 @@
 
     <div class="search-product">
       <el-input v-model="searchOfWarehouseId" style="width: 240px" placeholder="请输入停车场ID..." />
-      <el-button type="primary" plain @click="queryProductByWarehouseId(searchOfWarehouseId)">搜索该停车场ID下的所有车辆</el-button>
+      <el-button type="primary" color="#626aef" round plain @click="queryProductByWarehouseId(searchOfWarehouseId)">搜索该停车场ID下的所有车辆</el-button>
     </div>
 
     <div class="del-product">
       <el-input v-model="delOfWarehouseId" style="width: 240px" placeholder="请输入停车场ID..." />
-      <el-button type="primary" plain @click="delProductByWarehouseId(delOfWarehouseId)">删除该停车场ID下的所有车辆</el-button>
+      <el-button type="primary" color="#626aef" round plain @click="delProductByWarehouseId(delOfWarehouseId)">删除该停车场ID下的所有车辆</el-button>
     </div>
 
     <el-table :data="productData" style="width: 100%">
