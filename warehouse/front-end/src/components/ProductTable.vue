@@ -26,10 +26,15 @@ import ax from "../http/axios_utils.js";
 
 //获取所有产品信息
 const productData = ref()
-onMounted(() => {
+
+//查询产品列表
+const queryProductList = () => {
   ax.get('/product/list').then((success) => {
     productData.value = success.data.data
   })
+}
+onMounted(() => {
+  queryProductList()
 })
 
 </script>
