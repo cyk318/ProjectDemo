@@ -12,5 +12,6 @@ interface AdminRepo {
     fun queryAll(): List<AdminDo>
     fun del(id: String): Long
     fun update(dto: UpdateAdminDto): Long
+    fun queryById(id: String): AdminDo?
 
 }

@@ -64,7 +64,7 @@ class AdminApi(
     fun update(
         @RequestBody dto: UpdateAdminDto,
     ): ApiResp<Long> {
-        adminRepo.queryByUsername(dto.username) ?: throw AppException("用户名 ${dto.username} 不存在")
+        adminRepo.queryById(dto.id) ?: throw AppException("用户id ${dto.id} 不存在")
         val result = adminRepo.update(dto)
         return ApiResp.ok(result)
     }

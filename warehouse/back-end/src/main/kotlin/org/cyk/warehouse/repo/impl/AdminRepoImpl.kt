@@ -57,6 +57,10 @@ class AdminRepoImpl(
         return result.modifiedCount
     }
 
+    override fun queryById(id: String): AdminDo? {
+        return mongoTemplate.findById(id, AdminDo::class.java)
+    }
+
     private fun map(dto: RegDto) = with(dto) {
         AdminDo (
             username = username,
