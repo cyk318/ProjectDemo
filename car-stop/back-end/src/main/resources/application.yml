@@ -1,0 +1,10 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: warehouse
+  data:
+    mongodb:
+      uri: mongodb://env-base:27017/warehouse
+      field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy # ?????
