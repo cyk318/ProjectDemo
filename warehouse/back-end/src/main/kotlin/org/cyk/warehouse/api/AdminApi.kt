@@ -6,7 +6,6 @@ import org.cyk.warehouse.config.AppException
 import org.cyk.warehouse.config.HttpSessionKey
 import org.cyk.warehouse.repo.AdminRepo
 import org.cyk.warehouse.repo.impl.AdminDo
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
