@@ -6,6 +6,7 @@ import org.cyk.warehouse.config.AppException
 import org.cyk.warehouse.config.HttpSessionKey
 import org.cyk.warehouse.repo.AdminRepo
 import org.cyk.warehouse.repo.impl.AdminDo
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -24,14 +25,14 @@ class AdminApi(
     fun login(
         request: HttpServletRequest,
         @RequestBody dto: LoginDto
-    ): ApiResp<Int> {
+    ): ApiResp<AdminDo> {
         //1.判断用户是否存在
         val dbUser = adminRepo.queryByUsername(dto.username) ?: throw AppException("当前用户不存在！")
         //2.判断密码是否正确
         if (dto.password != dbUser.password) throw AppException("用户密码错误！")
         //3.登录成功，保存登录信息
         request.session.setAttribute(HttpSessionKey.USER_KEY, dbUser)
-        return ApiResp.ok(1)
+        return ApiResp.ok(dbUser)
     }
 
     @PostMapping("/reg")
