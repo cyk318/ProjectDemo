@@ -1,13 +1,11 @@
 package org.cyk.warehouse.api
 
 import jakarta.servlet.http.HttpServletRequest
-import jakarta.validation.constraints.NotBlank
 import org.cyk.warehouse.config.ApiResp
 import org.cyk.warehouse.config.AppException
 import org.cyk.warehouse.config.HttpSessionKey
 import org.cyk.warehouse.repo.AdminRepo
 import org.cyk.warehouse.repo.impl.AdminDo
-import org.springframework.web.bind.annotation.CrossOrigin
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
@@ -64,15 +62,15 @@ class AdminApi(
 
     @PostMapping("/update")
     fun update(
-        @RequestBody updateDto: UpdateDto,
+        @RequestBody dto: UpdateAdminDto,
     ): ApiResp<Long> {
-        val result = adminRepo.update(updateDto)
+        val result = adminRepo.update(dto)
         return ApiResp.ok(result)
     }
 
 }
 
-data class UpdateDto(
+data class UpdateAdminDto(
     val id: String,
     val username: String,
     val password: String,

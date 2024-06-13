@@ -59,7 +59,23 @@ class ProductApi(
         return ApiResp.ok(result)
     }
 
+    @PostMapping("/update")
+    fun update(
+        @RequestBody dto: UpdateProductDto
+    ): ApiResp<Long> {
+        val result = productRepo.update(dto)
+        return ApiResp.ok(result)
+    }
+
 }
+
+data class UpdateProductDto(
+    val id: String,
+    val warehouseId: String,
+    val name: String,
+    val description: String,
+    val price: Double,
+)
 
 data class AddProductDto(
     val warehouseId: String, //仓库 id

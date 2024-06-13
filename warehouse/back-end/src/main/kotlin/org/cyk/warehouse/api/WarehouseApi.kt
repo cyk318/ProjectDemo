@@ -45,7 +45,21 @@ class WarehouseApi(
         return ApiResp.ok(result1 + result2)
     }
 
+    @PostMapping("/update")
+    fun update(
+        @RequestBody dto: UpdateWarehouseDto,
+    ): ApiResp<Long> {
+        val result = warehouseRepo.update(dto)
+        return ApiResp.ok(result)
+    }
+
 }
+
+data class UpdateWarehouseDto(
+    val id: String,
+    val name: String,
+    val address: String,
+)
 
 data class AddWarehouseDto (
     val id: String,

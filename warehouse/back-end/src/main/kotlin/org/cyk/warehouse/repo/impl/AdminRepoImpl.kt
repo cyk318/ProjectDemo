@@ -1,7 +1,7 @@
 package org.cyk.warehouse.repo.impl
 
 import org.cyk.warehouse.api.RegDto
-import org.cyk.warehouse.api.UpdateDto
+import org.cyk.warehouse.api.UpdateAdminDto
 import org.cyk.warehouse.repo.AdminRepo
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.MongoTemplate
@@ -9,8 +9,6 @@ import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.query.Criteria
 import org.springframework.data.mongodb.core.query.Query
 import org.springframework.data.mongodb.core.query.Update
-import org.springframework.data.mongodb.core.query.UpdateDefinition
-import org.springframework.data.mongodb.core.update
 import org.springframework.stereotype.Repository
 
 @Document("w_admin")
@@ -46,7 +44,7 @@ class AdminRepoImpl(
         return result.deletedCount
     }
 
-    override fun update(dto: UpdateDto): Long {
+    override fun update(dto: UpdateAdminDto): Long {
         val c = Criteria.where("_id").`is`(dto.id)
         val u = Update()
         if (dto.username.isNotBlank()) {

@@ -1,13 +1,16 @@
 package org.cyk.warehouse.repo.impl
 
 import org.cyk.warehouse.api.AddProductDto
+import org.cyk.warehouse.api.UpdateProductDto
 import org.cyk.warehouse.repo.ProductRepo
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.mapping.Document
 import org.springframework.data.mongodb.core.query.Criteria
 import org.springframework.data.mongodb.core.query.Query
+import org.springframework.data.mongodb.core.query.Update
 import org.springframework.data.mongodb.core.remove
+import org.springframework.data.mongodb.core.update
 import org.springframework.stereotype.Repository
 
 @Document("w_product")
@@ -49,6 +52,23 @@ class ProductRepoImpl(
 
     override fun queryAll(): List<ProductDo> {
         return mongoTemplate.findAll(ProductDo::class.java)
+    }
+
+    override fun update(dto: UpdateProductDto): Long {
+        val c = Criteria.where("_id").`is`(dto.id)
+        val u = Update()
+        if (dto.warehouseId.isNotBlank()) {
+            u.set("warehouse_id", dto.warehouseId)
+        }
+        if (dto.warehouseId.isNotBlank()) {
+            u.set("name", dto.name)
+        }
+        if (dto.description.isNotBlank()) {
+            u.set("description", dto.description)
+        }
+        u.set("price", dto.price)
+        val result = mongoTemplate.updateFirst(Query.query(c), u, ProductDo::class.java)
+        return result.modifiedCount
     }
 
     private fun map(dto: AddProductDto): ProductDo = with(dto) {
