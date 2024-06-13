@@ -39,7 +39,7 @@ class AdminApi(
         @RequestBody dto: RegDto,
     ): ApiResp<Int> {
         //1.判断用户是否存在
-        val dbUser = adminRepo.queryByUsername(dto.username)?.let { throw AppException("当前用户已存在！") }
+        val dbUser = adminRepo.queryByUsername(dto.username)?.let { throw AppException("当前用户名已存在！") }
         //2.创建用户
         adminRepo.save(dto)
         return ApiResp.ok(1)
@@ -64,6 +64,7 @@ class AdminApi(
     fun update(
         @RequestBody dto: UpdateAdminDto,
     ): ApiResp<Long> {
+        adminRepo.queryByUsername(dto.username) ?: throw AppException("用户名 ${dto.username} 不存在")
         val result = adminRepo.update(dto)
         return ApiResp.ok(result)
     }

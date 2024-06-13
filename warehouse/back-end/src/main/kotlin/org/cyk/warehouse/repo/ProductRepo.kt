@@ -14,5 +14,6 @@ interface ProductRepo {
     fun delById(id: String): Long
     fun queryAll(): List<ProductDo>
     fun update(dto: UpdateProductDto): Long
+    fun queryById(id: String): ProductDo?
 
 }

@@ -63,6 +63,7 @@ class ProductApi(
     fun update(
         @RequestBody dto: UpdateProductDto
     ): ApiResp<Long> {
+        productRepo.queryById(dto.id) ?: throw AppException("产品 ${dto.id} 不存在！")
         val result = productRepo.update(dto)
         return ApiResp.ok(result)
     }

@@ -71,6 +71,10 @@ class ProductRepoImpl(
         return result.modifiedCount
     }
 
+    override fun queryById(id: String): ProductDo? {
+        return mongoTemplate.findById(id, ProductDo::class.java)
+    }
+
     private fun map(dto: AddProductDto): ProductDo = with(dto) {
         ProductDo(
             warehouseId = warehouseId,

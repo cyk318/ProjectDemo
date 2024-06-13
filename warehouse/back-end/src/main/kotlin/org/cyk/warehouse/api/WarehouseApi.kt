@@ -1,6 +1,7 @@
 package org.cyk.warehouse.api
 
 import org.cyk.warehouse.config.ApiResp
+import org.cyk.warehouse.config.AppException
 import org.cyk.warehouse.repo.ProductRepo
 import org.cyk.warehouse.repo.WarehouseRepo
 import org.cyk.warehouse.repo.impl.WarehouseDo
@@ -49,6 +50,7 @@ class WarehouseApi(
     fun update(
         @RequestBody dto: UpdateWarehouseDto,
     ): ApiResp<Long> {
+        warehouseRepo.queryById(dto.id) ?: throw AppException("仓库 ${dto.id} 不存在！")
         val result = warehouseRepo.update(dto)
         return ApiResp.ok(result)
     }
