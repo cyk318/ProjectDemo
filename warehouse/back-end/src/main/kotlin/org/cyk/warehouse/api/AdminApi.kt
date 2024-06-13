@@ -1,6 +1,7 @@
 package org.cyk.warehouse.api
 
 import jakarta.servlet.http.HttpServletRequest
+import jakarta.validation.constraints.NotBlank
 import org.cyk.warehouse.config.ApiResp
 import org.cyk.warehouse.config.AppException
 import org.cyk.warehouse.config.HttpSessionKey
@@ -61,7 +62,22 @@ class AdminApi(
         return ApiResp.ok(result)
     }
 
+    @PostMapping("/update")
+    fun update(
+        @RequestBody updateDto: UpdateDto,
+    ): ApiResp<Long> {
+        val result = adminRepo.update(updateDto)
+        return ApiResp.ok(result)
+    }
+
 }
+
+data class UpdateDto(
+    val id: String,
+    val username: String,
+    val password: String,
+)
+
 data class RegDto (
     val username: String,
     val password: String,
