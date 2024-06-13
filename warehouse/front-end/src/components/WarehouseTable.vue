@@ -94,7 +94,7 @@ const addWarehouseForm = reactive({
 
 //修改仓库弹出框设置
 const updateWarehouseDialog = ref(false)
-//修改用户表单
+//修改仓库表单
 const updateWarehouseForm = reactive({
   id: '',
   name: '',
