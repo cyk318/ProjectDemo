@@ -32,7 +32,6 @@ class MongoInitTask {
             warehouseId = warehouse1.id!!, // 使用仓库1的ID（确保不是null）
             name = "产品A",
             description = "高品质产品A",
-            price = 100.0
         )
 
         val product2 = CarDo(
@@ -40,14 +39,12 @@ class MongoInitTask {
             warehouseId = warehouse1.id!!, // 假设这个产品也存放在仓库1
             name = "产品B",
             description = "与产品A配套使用",
-            price = 50.0
         )
 
         val product3 = CarDo(
             id = "PRD003", // 为产品指定一个id
             warehouseId = warehouse2.id!!, // 这个产品存放在仓库2
             name = "产品C",
-            price = 75.0 // 使用默认描述
         )
 
         val warehouseList = mutableListOf(warehouse1, warehouse2)

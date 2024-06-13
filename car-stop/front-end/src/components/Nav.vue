@@ -30,7 +30,7 @@
       <el-menu-item index="0">
         <img
             style="width: 100px"
-            src="../image/logo.png"
+            src="../image/logo.jpg"
             alt="Element logo"
         />
       </el-menu-item>
