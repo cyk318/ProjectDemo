@@ -36,9 +36,9 @@
       </el-menu-item>
       <div class="flex-grow" />
 
-      <el-menu-item index="1" v-if="adminStore.name == null" @click="addAdminDialog = true">登录</el-menu-item>
-      <el-menu-item index="1" v-if="adminStore.name != null">欢迎回来~ {{ adminStore.name }}</el-menu-item>
-      <el-menu-item index="2" v-if="adminStore.name != null">退出登录</el-menu-item>
+      <el-menu-item index="1" v-if="username == null" @click="addAdminDialog = true">登录</el-menu-item>
+      <el-menu-item index="1" v-if="username != null">欢迎回来~ {{ username }}</el-menu-item>
+      <el-menu-item index="2" v-if="username != null" @click="logoutReq">退出登录</el-menu-item>
     </el-menu>
   </div>
 </template>
@@ -58,17 +58,27 @@ const adminForm = reactive({
   username: '',
   password: '',
 })
+const store = adminStore()
+const { username } = storeToRefs(store)
 
 const loginReq = () => {
-  addAdminDialog.value = true
+  addAdminDialog.value = false
   ax.post('/admin/login', adminForm).then((success) => {
     if (success.data.code === 0) {
       ElMessage({
         message: '登录成功！',
         type: 'success',
       })
-     adminStore.name = success.data.data.name
+     store.username = success.data.data.username
     }
+  })
+}
+
+const logoutReq = () => {
+  store.username = null
+  ElMessage({
+    message: '退出成功！',
+    type: 'success',
   })
 }
 
