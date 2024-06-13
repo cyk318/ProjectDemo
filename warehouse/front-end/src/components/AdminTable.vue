@@ -1,11 +1,11 @@
 <template>
   <div id="right-table">
 
-    <!--对话框-->
-    <el-button plain @click="dialogFormVisible = true">
+    <!--新增管理员对话框-->
+    <el-button plain @click="addAdminDialog = true">
       新增管理员信息
     </el-button>
-    <el-dialog v-model="dialogFormVisible" title="新增管理员信息" width="500">
+    <el-dialog v-model="addAdminDialog" title="新增管理员信息" width="500">
       <el-form :model="adminForm">
         <el-form-item label="用户名" :label-width="formLabelWidth">
           <el-input v-model="adminForm.username" autocomplete="off" />
@@ -16,8 +16,35 @@
       </el-form>
       <template #footer>
         <div class="dialog-footer">
-          <el-button @click="dialogFormVisible = false">取消</el-button>
+          <el-button @click="addAdminDialog = false">取消</el-button>
           <el-button type="primary" @click="addAdminReq" >
+            确认
+          </el-button>
+        </div>
+      </template>
+    </el-dialog>
+
+
+<!--修改管理员信息对话框-->
+    <el-button plain @click="updateAdminDialog = true">
+      修改管理员信息
+    </el-button>
+    <el-dialog v-model="updateAdminDialog" title="修改管理员信息" width="500">
+      <el-form :model="updateAdminForm">
+        <el-form-item label="ID" :label-width="formLabelWidth">
+          <el-input v-model="updateAdminForm.id" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="用户名" :label-width="formLabelWidth">
+          <el-input v-model="updateAdminForm.username" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="密码" :label-width="formLabelWidth">
+          <el-input v-model="updateAdminForm.password" autocomplete="off" />
+        </el-form-item>
+      </el-form>
+      <template #footer>
+        <div class="dialog-footer">
+          <el-button @click="updateAdminDialog = false">取消</el-button>
+          <el-button type="primary" @click="updateAdminReq" >
             确认
           </el-button>
         </div>
@@ -49,11 +76,20 @@ import ax from "../http/axios_utils.js";
 import {ElMessage} from "element-plus";
 
 //新增用户弹出框设置
-const dialogFormVisible = ref(false)
+const addAdminDialog = ref(false)
 const formLabelWidth = '140px'
 
 //新增用户弹出框表单
 const adminForm = reactive({
+  username: '',
+  password: '',
+})
+
+//修改用户弹出框设置
+const updateAdminDialog = ref(false)
+//修改用户表单
+const updateAdminForm = reactive({
+  id: '',
   username: '',
   password: '',
 })
@@ -71,7 +107,7 @@ const queryAndLoadAdminList = () => {
 
 //新增用户请求
 const addAdminReq = () => {
-  dialogFormVisible.value = false
+  addAdminDialog.value = false
   ax.post('/admin/reg', adminForm).then((success) => {
     if (success.data.code === 0) {
       ElMessage({
@@ -89,6 +125,20 @@ const delAdminReq = (admin) => {
     if (success.data.code === 0) {
       ElMessage({
         message: '管理员删除成功！',
+        type: 'success',
+      })
+    }
+    queryAndLoadAdminList()
+  })
+}
+
+//修改用户请求
+const updateAdminReq = () => {
+  updateAdminDialog.value = false
+  ax.post('/admin/update', updateAdminForm).then((success) => {
+    if (success.data.code === 0) {
+      ElMessage({
+        message: '管理员信息修改成功！',
         type: 'success',
       })
     }
