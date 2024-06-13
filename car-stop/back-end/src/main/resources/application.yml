@@ -1,10 +1,10 @@
 server:
-  port: 9000
+  port: 9001
 
 spring:
   application:
-    name: warehouse
+    name: car
   data:
     mongodb:
-      uri: mongodb://env-base:27017/warehouse
+      uri: mongodb://env-base:27017/car
       field-naming-strategy: org.springframework.data.mapping.model.SnakeCaseFieldNamingStrategy # ?????

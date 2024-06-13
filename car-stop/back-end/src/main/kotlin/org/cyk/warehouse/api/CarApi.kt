@@ -2,18 +2,18 @@ package org.cyk.warehouse.api
 
 import org.cyk.warehouse.config.ApiResp
 import org.cyk.warehouse.config.AppException
-import org.cyk.warehouse.repo.ProductRepo
-import org.cyk.warehouse.repo.WarehouseRepo
-import org.cyk.warehouse.repo.impl.ProductDo
+import org.cyk.warehouse.repo.CarRepo
+import org.cyk.warehouse.repo.ParkingRepo
+import org.cyk.warehouse.repo.impl.CarDo
 import org.springframework.web.bind.annotation.*
 
 
 
 @RestController
 @RequestMapping("/product")
-class ProductApi(
-    private val productRepo: ProductRepo,
-    private val warehouseRepo: WarehouseRepo,
+class CarApi(
+    private val carRepo: CarRepo,
+    private val parkingRepo: ParkingRepo,
 ) {
 
     @PostMapping("/add")
@@ -21,24 +21,24 @@ class ProductApi(
         @RequestBody dto: AddProductDto
     ): ApiResp<Int> {
         //1.判断对应的库存是否存在
-        warehouseRepo.queryById(dto.warehouseId) ?: throw AppException("库存不存在，无法添加产品！")
+        parkingRepo.queryById(dto.warehouseId) ?: throw AppException("库存不存在，无法添加产品！")
         //2.将产品信息添加到数据
-        productRepo.save(dto)
+        carRepo.save(dto)
         return ApiResp.ok(1)
     }
 
     @GetMapping("list")
-    fun list(): ApiResp<List<ProductDo>> {
-        val result = productRepo.queryAll()
+    fun list(): ApiResp<List<CarDo>> {
+        val result = carRepo.queryAll()
         return ApiResp.ok(result)
     }
 
     @GetMapping("/query/from_warehouse/{id}")
     fun queryFromWarehouse(
         @PathVariable("id") id: String
-    ): ApiResp<List<ProductDo>> {
+    ): ApiResp<List<CarDo>> {
         //根据库存 id 查询该库存下的所有产品
-        val result = productRepo.queryByWarehouseId(id)
+        val result = carRepo.queryByWarehouseId(id)
         return ApiResp.ok(result)
     }
 
@@ -47,7 +47,7 @@ class ProductApi(
         @PathVariable("id") id: String
     ): ApiResp<Long> {
         //根据库存 id 删除该库存下的所有产品
-        val result = productRepo.delByWarehouseId(id)
+        val result = carRepo.delByWarehouseId(id)
         return ApiResp.ok(result)
     }
 
@@ -55,7 +55,7 @@ class ProductApi(
     fun del(
         @PathVariable("id") id: String
     ): ApiResp<Long> {
-        val result = productRepo.delById(id)
+        val result = carRepo.delById(id)
         return ApiResp.ok(result)
     }
 
@@ -63,9 +63,9 @@ class ProductApi(
     fun update(
         @RequestBody dto: UpdateProductDto
     ): ApiResp<Long> {
-        productRepo.queryById(dto.id) ?: throw AppException("产品 ${dto.id} 不存在！")
-        warehouseRepo.queryById(dto.warehouseId) ?: throw AppException("仓库 ${dto.warehouseId} 不存在！")
-        val result = productRepo.update(dto)
+        carRepo.queryById(dto.id) ?: throw AppException("产品 ${dto.id} 不存在！")
+        parkingRepo.queryById(dto.warehouseId) ?: throw AppException("仓库 ${dto.warehouseId} 不存在！")
+        val result = carRepo.update(dto)
         return ApiResp.ok(result)
     }
 
@@ -76,14 +76,13 @@ data class UpdateProductDto(
     val warehouseId: String,
     val name: String,
     val description: String,
-    val price: Double,
 )
 
 data class AddProductDto(
+    val id: String, //车辆 id
     val warehouseId: String, //仓库 id
     val name: String,
     val description: String = "暂无描述",
-    val price: Double = 0.0
 )
 
 //数据库老师化的重点

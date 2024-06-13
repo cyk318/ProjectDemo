@@ -3,7 +3,7 @@ import {ElMessage} from "element-plus";
 
 const ax = axios.create({
     // baseURL: "/api",
-    baseURL: "http://env-base:9000",
+    baseURL: "http://localhost:9001",
     timeout: 5000
 });
 

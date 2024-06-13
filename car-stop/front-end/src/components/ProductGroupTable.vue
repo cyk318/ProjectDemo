@@ -2,21 +2,20 @@
   <div id="right-table">
 
     <div class="search-product">
-      <el-input v-model="searchOfWarehouseId" style="width: 240px" placeholder="请输入库存ID..." />
-      <el-button type="primary" plain @click="queryProductByWarehouseId(searchOfWarehouseId)">搜索该库存ID下的所有产品</el-button>
+      <el-input v-model="searchOfWarehouseId" style="width: 240px" placeholder="请输入停车场ID..." />
+      <el-button type="primary" plain @click="queryProductByWarehouseId(searchOfWarehouseId)">搜索该停车场ID下的所有车辆</el-button>
     </div>
 
     <div class="del-product">
-      <el-input v-model="delOfWarehouseId" style="width: 240px" placeholder="请输入库存ID..." />
-      <el-button type="primary" plain @click="delProductByWarehouseId(delOfWarehouseId)">删除该库存ID下的所有产品</el-button>
+      <el-input v-model="delOfWarehouseId" style="width: 240px" placeholder="请输入停车场ID..." />
+      <el-button type="primary" plain @click="delProductByWarehouseId(delOfWarehouseId)">删除该停车场ID下的所有车辆</el-button>
     </div>
 
     <el-table :data="productData" style="width: 100%">
       <el-table-column label="ID" prop="id" />
-      <el-table-column label="库存 ID" prop="warehouseId" />
-      <el-table-column label="产品名称" prop="name" />
-      <el-table-column label="产品描述" prop="description" />
-      <el-table-column label="价格" prop="price" />
+      <el-table-column label="停车场ID" prop="warehouseId" />
+      <el-table-column label="车辆名称" prop="name" />
+      <el-table-column label="车辆描述" prop="description" />
     </el-table>
 
   </div>
@@ -44,7 +43,7 @@ const delProductByWarehouseId = (warehouseId) => {
   ax.get(`/product/del/from_warehouse/${warehouseId}`).then((success) => {
     if (success.data.code === 0) {
       ElMessage({
-        message: '产品组删除成功！',
+        message: '车辆组删除成功！',
         type: 'success',
       })
     }

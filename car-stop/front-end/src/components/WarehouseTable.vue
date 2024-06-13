@@ -1,19 +1,19 @@
 <template>
   <div id="right-table">
 
-    <!--新增仓库对话框-->
+    <!--新增停车场对话框-->
     <el-button plain @click="addWarehouseDialog = true">
-      新增仓库信息
+      新增停车场
     </el-button>
-    <el-dialog v-model="addWarehouseDialog" title="新增仓库信息" width="500">
+    <el-dialog v-model="addWarehouseDialog" title="新增停车场" width="500">
       <el-form :model="addWarehouseForm">
         <el-form-item label="ID" :label-width="formLabelWidth">
           <el-input v-model="addWarehouseForm.id" autocomplete="off" />
         </el-form-item>
-        <el-form-item label="名称" :label-width="formLabelWidth">
+        <el-form-item label="停车场名称" :label-width="formLabelWidth">
           <el-input v-model="addWarehouseForm.name" autocomplete="off" />
         </el-form-item>
-        <el-form-item label="地址" :label-width="formLabelWidth">
+        <el-form-item label="停车场地址" :label-width="formLabelWidth">
           <el-input v-model="addWarehouseForm.address" autocomplete="off" />
         </el-form-item>
       </el-form>
@@ -32,15 +32,15 @@
     <el-button plain @click="updateWarehouseDialog = true">
       修改仓库信息
     </el-button>
-    <el-dialog v-model="updateWarehouseDialog" title="修改仓库信息" width="500">
+    <el-dialog v-model="updateWarehouseDialog" title="修改停车场信息" width="500">
       <el-form :model="updateWarehouseForm">
         <el-form-item label="ID" :label-width="formLabelWidth">
           <el-input v-model="updateWarehouseForm.id" autocomplete="off" />
         </el-form-item>
-        <el-form-item label="名称" :label-width="formLabelWidth">
+        <el-form-item label="停车场名称" :label-width="formLabelWidth">
           <el-input v-model="updateWarehouseForm.name" autocomplete="off" />
         </el-form-item>
-        <el-form-item label="住址" :label-width="formLabelWidth">
+        <el-form-item label="停车场住址" :label-width="formLabelWidth">
           <el-input v-model="updateWarehouseForm.address" autocomplete="off" />
         </el-form-item>
       </el-form>
@@ -56,8 +56,8 @@
 
     <el-table :data="warehouseTable" style="width: 100%">
       <el-table-column label="ID" prop="id" />
-      <el-table-column label="名称" prop="name" />
-      <el-table-column label="地址" prop="address" />
+      <el-table-column label="停车场名称" prop="name" />
+      <el-table-column label="停车场地址" prop="address" />
       <el-table-column label="操作">
         <template #default="scope">
           <el-button
@@ -114,7 +114,7 @@ const addWarehouseReq = () => {
   ax.post('/warehouse/add', addWarehouseForm).then((success) => {
     if (success.data.code === 0) {
       ElMessage({
-        message: '仓库信息新增成功！',
+        message: '停车场信息新增成功！',
         type: 'success',
       })
     }
@@ -128,7 +128,7 @@ const updateWarehouseReq = () => {
   ax.post("/warehouse/update", updateWarehouseForm).then((success) => {
     if (success.data.code === 0) {
       ElMessage({
-        message: '仓库信息修改成功！',
+        message: '停车场信息修改成功！',
         type: 'success',
       })
     }
@@ -141,7 +141,7 @@ const delWarehouseReq = (warehouse) => {
   ax.get(`/warehouse/del/${warehouse.id}`).then((success) => {
     if (success.data.code === 0) {
       ElMessage({
-        message: '仓库信息删除成功！',
+        message: '停车场信息删除成功！',
         type: 'success',
       })
     }

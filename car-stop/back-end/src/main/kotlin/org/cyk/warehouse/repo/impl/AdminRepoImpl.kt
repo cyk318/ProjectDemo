@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.query.Query
 import org.springframework.data.mongodb.core.query.Update
 import org.springframework.stereotype.Repository
 
-@Document("w_admin")
+@Document("c_admin")
 data class AdminDo(
     @Id
     val id: String? = null,

@@ -1,13 +1,13 @@
 <template>
   <div id="right-table">
 
-    <!--新增管理员对话框-->
+    <!--新增员工对话框-->
     <el-button plain @click="addAdminDialog = true">
-      新增管理员信息
+      新增员工信息
     </el-button>
-    <el-dialog v-model="addAdminDialog" title="新增管理员信息" width="500">
+    <el-dialog v-model="addAdminDialog" title="新增员工信息" width="500">
       <el-form :model="adminForm">
-        <el-form-item label="用户名" :label-width="formLabelWidth">
+        <el-form-item label="账号" :label-width="formLabelWidth">
           <el-input v-model="adminForm.username" autocomplete="off" />
         </el-form-item>
         <el-form-item label="密码" :label-width="formLabelWidth">
@@ -27,14 +27,14 @@
 
 <!--修改管理员信息对话框-->
     <el-button plain @click="updateAdminDialog = true">
-      修改管理员信息
+      修改员工信息
     </el-button>
-    <el-dialog v-model="updateAdminDialog" title="修改管理员信息" width="500">
+    <el-dialog v-model="updateAdminDialog" title="修改员工信息" width="500">
       <el-form :model="updateAdminForm">
         <el-form-item label="ID" :label-width="formLabelWidth">
           <el-input v-model="updateAdminForm.id" autocomplete="off" />
         </el-form-item>
-        <el-form-item label="用户名" :label-width="formLabelWidth">
+        <el-form-item label="账号" :label-width="formLabelWidth">
           <el-input v-model="updateAdminForm.username" autocomplete="off" />
         </el-form-item>
         <el-form-item label="密码" :label-width="formLabelWidth">
@@ -54,7 +54,7 @@
     <!--表格-->
     <el-table :data="adminList" style="width: 100%">
       <el-table-column label="ID" prop="id" />
-      <el-table-column label="用户名" prop="username" />
+      <el-table-column label="账号" prop="username" />
       <el-table-column label="密码" prop="password" />
       <el-table-column label="操作">
         <template #default="scope">
@@ -110,7 +110,7 @@ const addAdminReq = () => {
   ax.post('/admin/reg', adminForm).then((success) => {
     if (success.data.code === 0) {
       ElMessage({
-        message: '管理员新增成功！',
+        message: '员工新增成功！',
         type: 'success',
       })
     }
@@ -123,7 +123,7 @@ const delAdminReq = (admin) => {
   ax.get(`/admin/del/${admin.id}`).then((success) => {
     if (success.data.code === 0) {
       ElMessage({
-        message: '管理员删除成功！',
+        message: '员工删除成功！',
         type: 'success',
       })
     }
@@ -137,7 +137,7 @@ const updateAdminReq = () => {
   ax.post('/admin/update', updateAdminForm).then((success) => {
     if (success.data.code === 0) {
       ElMessage({
-        message: '管理员信息修改成功！',
+        message: '员工信息修改成功！',
         type: 'success',
       })
     }

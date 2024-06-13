@@ -3,7 +3,7 @@
     <!--登录对话框-->
     <el-dialog v-model="addAdminDialog" title="登录" width="500">
       <el-form :model="adminForm">
-        <el-form-item label="用户名" :label-width="formLabelWidth">
+        <el-form-item label="账号" :label-width="formLabelWidth">
           <el-input v-model="adminForm.username" autocomplete="off" />
         </el-form-item>
         <el-form-item label="密码" :label-width="formLabelWidth">
@@ -37,7 +37,7 @@
       <div class="flex-grow" />
 
       <el-menu-item index="1" v-if="username == null" @click="addAdminDialog = true">登录</el-menu-item>
-      <el-menu-item index="1" v-if="username != null">欢迎回来~ {{ username }}</el-menu-item>
+      <el-menu-item index="1" v-if="username != null">员工 {{ username }} 上线...</el-menu-item>
       <el-menu-item index="2" v-if="username != null" @click="logoutReq">退出登录</el-menu-item>
     </el-menu>
   </div>

@@ -9,25 +9,25 @@
       >
         <router-link :to="{name: 'admin'}">
           <el-menu-item index="1" class="row">
-            <span>管理员信息</span>
+            <span>员工信息</span>
           </el-menu-item>
         </router-link>
 
         <router-link :to="{name: 'warehouse'}">
           <el-menu-item index="2" class="row">
-            <span>仓库信息</span>
+            <span>停车场信息</span>
           </el-menu-item>
         </router-link>
 
         <router-link :to="{name: 'product'}">
           <el-menu-item index="3" class="row">
-            <span>产品信息</span>
+            <span>车辆信息</span>
           </el-menu-item>
         </router-link>
 
         <router-link :to="{name: 'product_group'}">
           <el-menu-item index="4" class="row">
-            <span>产品组</span>
+            <span>车辆组</span>
           </el-menu-item>
         </router-link>
 
