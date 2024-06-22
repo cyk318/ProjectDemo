@@ -1,0 +1,25 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: car
+  datasource:
+    url: jdbc:mysql://env-base:3306/db_order
+    username: root
+    password: 1111
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: env-base:8848
+
+mybatis-plus:
+  # 以下配置都是默认值，可以根据项目情况进行修改
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印 sql
+    map-underscore-to-camel-case: true # 是否开启下划线和驼峰的映射
+  global-config:
+    db-config:
+      id-type: assign_id  # 默认雪花算法，另外还有 auto(自增id) assign_uuid(uuid)
+      update-strategy: not_null # 更新策略: 只更新非空字段
