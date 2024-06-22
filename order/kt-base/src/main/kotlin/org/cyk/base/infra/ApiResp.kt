@@ -1,4 +1,4 @@
-package org.cyk.base
+package org.cyk.base.infra
 import java.io.Serializable
 
 /**

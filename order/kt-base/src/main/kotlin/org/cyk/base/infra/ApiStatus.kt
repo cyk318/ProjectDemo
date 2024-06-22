@@ -1,4 +1,4 @@
-package org.cyk.base
+package org.cyk.base.infra
 
 /**
  * 用来表明 api 的不同状态

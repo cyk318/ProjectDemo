@@ -4,7 +4,10 @@ import com.baomidou.mybatisplus.annotation.TableId
 import com.baomidou.mybatisplus.annotation.TableName
 import com.baomidou.mybatisplus.core.mapper.BaseMapper
 import com.baomidou.mybatisplus.extension.kotlin.KtQueryChainWrapper
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page
 import org.apache.ibatis.annotations.Mapper
+import org.cyk.base.infra.PageResp
+import org.cyk.product.facade.api.PageProductDto
 import org.cyk.product.repo.ProductRepo
 import org.springframework.stereotype.Repository
 import java.math.BigDecimal
@@ -48,6 +51,31 @@ class ProductRepoImpl: ProductRepo {
             ?.let { map(it) }
     }
 
+    override fun pageProductInfo(req: PageProductDto): PageResp<ProductInfo> {
+        val pageResult = KtQueryChainWrapper(ProductInfoDo::class.java)
+            .orderByDesc(ProductInfoDo::cTime)
+            .page(Page.of(req.start, req.limit + 1))
+        val result = pageResult.records.map(::map).toMutableList()
+        val hasMore = result.size > req.limit
+        if (hasMore) {
+            result.removeLast()
+        }
+        return PageResp.ok(
+            hasMore,
+            req.start + 1,
+            result,
+            pageResult.total
+        )
+    }
+
+    override fun queryStoreByIds(storeIds: List<Long>): List<ProductStore> {
+         return KtQueryChainWrapper(ProductStoreDo::class.java)
+            .`in`(ProductStoreDo::id, storeIds)
+            .list()
+             .map(::map)
+    }
+
+
     private fun map(o: ProductInfoDo) = with(o) {
         ProductInfo(
             id = id!!,
@@ -58,6 +86,16 @@ class ProductRepoImpl: ProductRepo {
             count = count,
             cTime = cTime,
             uTime = uTime,
+        )
+    }
+
+    private fun map(o: ProductStoreDo) = with(o) {
+        ProductStore(
+            id = id!!,
+            name = name,
+            avatar = avatar,
+            cTime = cTime,
+            uTime = uTime
         )
     }
 
