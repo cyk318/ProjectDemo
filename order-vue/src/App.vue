@@ -1,11 +1,13 @@
 <template>
   <div id="app">
-    <ProductTable></ProductTable>
+    <Nav></Nav>
+    <router-view></router-view>
   </div>
 </template>
 
 <script setup>
 import ProductTable from "./components/ProductTable.vue";
+import Nav from "./components/Nav.vue";
 
 </script>
 

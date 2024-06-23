@@ -1,11 +1,12 @@
 <template>
-  <div id="product-table">
-    <h1 class="title">商城列表</h1>
+  <div>
+    <h1 class="title">订单列表</h1>
+
     <!--列表-->
     <el-table
         ref="multipleTableRef"
-        :data="productList"
-        style="width: 800px"
+        :data="orderList"
+        style="width: 800px; margin: 0 auto"
         @selection-change="handleChooseChange"
     >
       <el-table-column type="selection" width="55" />
@@ -23,59 +24,25 @@
     </el-table>
 
     <div class="act">
-      <el-button class="act-btn" type="primary">创建订单</el-button>
-    </div>
-
-    <!--分页-->
-    <div class="foo-page">
-      <el-pagination
-          :page-size="limit"
-          :pager-count="pagerCount"
-          layout="prev, pager, next"
-          :total="total"
-          @current-change="pageProduct"
-      />
+      <h3>合计: {{totalPrice}}</h3>
+      <el-button class="act-btn" type="primary">提交订单</el-button>
     </div>
   </div>
 </template>
 
 <script setup>
-//选中的商品
-import {getProductPage} from "../request/product_table_req.js";
-
 const chooses = ref()
 const handleChooseChange = (choose) => {
   chooses.value = choose
 }
 //所有商品
-const productList = ref()
-//分页相关
-const start = ref(1)
-const limit = ref(10) //每页显示 10 条
-const pagerCount = ref(5) //超过多少页隐藏
-const total = ref() //总数
-
-//点击分页
-const pageProduct = (start) => {
-  getProductPage(start, limit.value).then((data) => {
-    productList.value = data.result
-  })
-}
-
-onMounted(() => {
-  getProductPage(start.value, limit.value).then((data) => {
-    total.value = data.total
-    productList.value = data.result
-  })
-})
+const orderList = ref()
+//总价格
+const totalPrice = ref(0)
 
 </script>
 
 <style lang="less" scoped>
-#product-table {
-  width: 800px;
-  margin: 0 auto;
-}
 
 .title {
   width: 300px;
@@ -87,26 +54,11 @@ onMounted(() => {
 }
 
 .act {
-  width: 200px;
-  height: 80px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .act-btn {
-    width: 180px;
-    height: 60px;
-  }
-}
-
-.foo-page {
-  width: 200px;
+  width: 300px;
   height: 50px;
   margin: 0 auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
-
-
 </style>

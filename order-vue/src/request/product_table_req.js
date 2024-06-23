@@ -6,3 +6,4 @@ export const getProductPage = (start, limit) => {
             return ok.data.data
         })
 }
+

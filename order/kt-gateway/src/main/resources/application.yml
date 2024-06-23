@@ -16,10 +16,6 @@ spring:
           uri: lb://order
           predicates:
             - Path=/order/**
-        - id: car
-          uri: lb://car
-          predicates:
-            - Path=/car/**
         - id: product
           uri: lb://product
           predicates:

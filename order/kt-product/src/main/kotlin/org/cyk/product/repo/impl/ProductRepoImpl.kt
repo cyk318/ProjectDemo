@@ -54,14 +54,10 @@ class ProductRepoImpl: ProductRepo {
     override fun pageProductInfo(req: PageProductDto): PageResp<ProductInfo> {
         val pageResult = KtQueryChainWrapper(ProductInfoDo::class.java)
             .orderByDesc(ProductInfoDo::cTime)
-            .page(Page.of(req.start, req.limit + 1))
+            .page(Page.of(req.start, req.limit))
         val result = pageResult.records.map(::map).toMutableList()
-        val hasMore = result.size > req.limit
-        if (hasMore) {
-            result.removeLast()
-        }
         return PageResp.ok(
-            hasMore,
+            pageResult.hasNext(),
             req.start + 1,
             result,
             pageResult.total
