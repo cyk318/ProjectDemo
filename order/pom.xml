@@ -11,6 +11,7 @@
         <module>kt-user</module>
         <module>kt-base</module>
         <module>kt-car</module>
+        <module>kt-gateway</module>
     </modules>
     <groupId>org.cyk</groupId>
     <version>1.0-SNAPSHOT</version>

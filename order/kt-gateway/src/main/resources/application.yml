@@ -1,0 +1,33 @@
+server:
+  port: 10010 # 网关端口
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      server-addr: env-base:8848 # nacos 地址
+    gateway:
+      routes:
+        - id: user
+          uri: lb://user
+          predicates:
+            - Path=/user/**
+        - id: order
+          uri: lb://order
+          predicates:
+            - Path=/order/**
+        - id: car
+          uri: lb://car
+          predicates:
+            - Path=/car/**
+        - id: product
+          uri: lb://product
+          predicates:
+            - Path=/product/**
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowedOriginPatterns: "*"
+            allowCredentials: true

@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/kt-base/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kt-car/src/main/kotlin" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/kt-gateway/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kt-order/src/main/kotlin" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kt-order/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/kt-product/src/main/kotlin" charset="UTF-8" />
