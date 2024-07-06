@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 import java.io.File
 import java.io.FileInputStream
+import java.io.FileOutputStream
 import java.util.concurrent.TimeUnit
 import kotlin.math.min
 
@@ -167,7 +168,40 @@ class MinioObjectTests {
         println(url)
     }
 
+    @Test
+    fun test6() {
+        val resp = minioClient.getObject(
+            GetObjectArgs.builder()
+                .bucket("dir1")
+                .`object`("test.gif")
+                .build()
+        )
+        val file = FileOutputStream("D:/tmp/123.gif")
+        val result = resp.transferTo(file)
+        println(result)
+    }
 
+    @Test
+    fun test7() {
+        val objects = minioClient.listObjects(
+            ListObjectsArgs.builder()
+                .bucket("dir1")
+                .build()
+        )
+        objects.forEach { result ->
+            val item = result.get()
+            println(item.objectName())
+        }
+    }
 
+    @Test
+    fun test8() {
+        minioClient.removeObject(
+            RemoveObjectArgs.builder()
+                .bucket("dir1")
+                .`object`("test2.jpg")
+                .build()
+        )
+    }
 
 }
