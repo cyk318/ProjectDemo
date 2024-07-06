@@ -1,12 +1,12 @@
 package org.cyk.minio
 
 import io.minio.*
+import io.minio.errors.ErrorResponseException
 import jakarta.annotation.Resource
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 import java.io.File
 import java.io.FileInputStream
-import kotlin.math.min
 
 @SpringBootTest
 class MinioObjectTests {
@@ -29,5 +29,35 @@ class MinioObjectTests {
                 .build()
         )
     }
+
+    @Test
+    fun test2() {
+        minioClient.uploadObject(
+            UploadObjectArgs.builder()
+                .bucket("dir1")
+                .`object`("test.gif")
+                .filename("D:/tmp/滑稽.gif")
+                .build()
+        )
+    }
+
+    @Test
+    fun test3() {
+        try {
+            val result = minioClient.statObject(
+                StatObjectArgs.builder()
+                    .bucket("dir1")
+                    .`object`("testa1.gif")
+                    .build()
+            )
+            println(result)
+        } catch (e: ErrorResponseException) {
+            println("文件不存在！")
+            println(e.message)
+        }
+
+    }
+
+
 
 }
