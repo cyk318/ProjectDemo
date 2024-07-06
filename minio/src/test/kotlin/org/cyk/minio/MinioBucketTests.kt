@@ -3,13 +3,13 @@ package org.cyk.minio
 import io.minio.BucketExistsArgs
 import io.minio.MakeBucketArgs
 import io.minio.MinioClient
+import io.minio.RemoveBucketArgs
 import jakarta.annotation.Resource
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
-import kotlin.math.min
 
 @SpringBootTest
-class MinioApplicationTests {
+class MinioBucketTests {
 
     @Resource
     private lateinit var minioClient: MinioClient
@@ -41,6 +41,15 @@ class MinioApplicationTests {
         bucketList.forEach { bucket ->
             println("${bucket.name()} -- ${bucket.creationDate()}")
         }
+    }
+
+    @Test
+    fun test3() {
+        minioClient.removeBucket(
+            RemoveBucketArgs.builder()
+                .bucket("dir2")
+                .build()
+        )
     }
 
 
